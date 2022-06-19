@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/rinnovi/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Rinnovi - T-Order Developers</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">T-Order Developers</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../ordini/" class="nav-link">Ordini</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Rinnovi</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../integrazioni/" class="nav-link">Integrazioni</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../esempi/" class="nav-link">Esempi</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../ordini/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../integrazioni/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#rinnovi" class="nav-link">Rinnovi</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#annualibiennali31-12" class="nav-link">Annuali/Biennali/31-12</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#mensilitrimestralisemestrali" class="nav-link">Mensili/Trimestrali/Semestrali</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="rinnovi">Rinnovi</h1>
+<p>Alcuni degli articoli che è possibile all'interno degli ordini sono articoli con fatturazione periodica, per questi articoli è necessario gestire anche la fase successiva al completamento dell'ordine: i rinnovi.</p>
+<p>T-order permette di gestire rinnovi di diverso tipo, in particolare possiamo distinguere due macro sezioni:</p>
+<h2 id="annualibiennali31-12">Annuali/Biennali/31-12</h2>
+<p>I rinnovi Annuali/Biennali sono organizzati in due tabelle: rinnovo e articolo_rinnovo.</p>
+<p>Ad ogni articolo_rinnovo corrisponde uno ed un solo rinnovo, ad ogni rinnovo (se non è completato) corrisponono uno o più articolo_rinnovo.</p>
+<p>Gli articoli all'interno dei rinnovi di questo tipo sono gli articoli con mth_12, mth_24 o new_year = 1</p>
+<h3 id="import-da-t_trace">Import da t_trace</h3>
+<p>I rinnovi vengono generati tramite import dalla tabella t_trace:</p>
+<p>Creazione record rinnovi</p>
+<ol>
+<li>Query di estrazione</li>
+</ol>
+<pre><code class="language-sql">SELECT t_trace.id as t_trace_id,cus1.id as cliente,cus2.id as
+cliente_fatt_alt, locale.id as locale, articolo.id as articolo,
+price,serial_number,installation_date, due_date_maintenance,
+payment_type
+  FROM [T-ORDER].[db_ordini].t_trace
+  JOIN [T-ORDER].[db_ordini].cliente AS cus1
+  ON cus1.id_trace = t_trace.customer_id
+  JOIN [T-ORDER].[db_ordini].locale
+  ON locale.piva = cus1.piva AND locale.prg = t_trace.prg_location
+  JOIN [T-ORDER].[db_ordini].articolo
+  ON articolo.id_trace = t_trace.article_id
+  LEFT JOIN [T-ORDER].[db_ordini].cliente AS cus2
+  ON cus2.id_trace = t_trace.customer_for_billing
+  WHERE (date_import_rinnovi IS NULL)
+  AND due_date_maintenance IS NOT NULL
+  AND trace_id IS NOT NULL
+  AND (deleted IS NULL OR deleted = 0);
+</code></pre>
+<ol>
+<li>Raggruppamento per (mese,anno,locale)</li>
+<li>Inserimento</li>
+</ol>
+<h3 id="configurazione-rinnovo-locale">Configurazione rinnovo locale</h3>
+<p>Tutti i rinnovi di un certo locale condividono alcune informazioni: pagamento, fatturazione alternativa, note e tacito rinnovo.</p>
+<p>Questi dati vengono salvati all'interno della tabella configurazione_rinnovo_locale che prevede un record per ogni locale per il quale sono stati inseriti almeno uno dei campi scritti sopra.</p>
+<h3 id="disdetta">Disdetta</h3>
+<p>E' possibile eliminare un articolo da un rinnovo effettuando la disdetta.</p>
+<p>La disdetta dell'articolo di un rinnovo consiste in:</p>
+<ol>
+<li>scrittura disdetta della t_deleted</li>
+</ol>
+<p><code>{
+    articolo,
+    prezzo,
+    matricola,
+    data_scadenza,
+    data_cancellazione: now(),
+    cliente,
+    locale,
+    motivazione,
+    utente: utente_richiesta,
+    note
+   }</code></p>
+<ol>
+<li>invio disdetta a trace (se trace_id != null)</li>
+</ol>
+<p><code>{
+     "deleted": 1,
+     "date_import_trace": null
+   }</code></p>
+<ol>
+<li>eliminazione articolo_rinnovo</li>
+<li>impostazione rinnovo a completato (se non ci sono altri articoli)</li>
+</ol>
+<h3 id="inserimento-nuovi-articoli">Inserimento nuovi articoli</h3>
+<p>All'interno di un rinnovo è possibile inserire gli articoli che hanno mth _12, mth_24 o new_year = 1.</p>
+<p>Per la logica di rinnovo di questi articoli vedi rinnovo con <u>trace_id a null</u>.</p>
+<h3 id="cambio-piano">Cambio piano</h3>
+<p>E' possibile effettuare un cambio piano (modifica dell'articolo) con tutti gli articoli appartenenti allo stesso gruppo e con lo stesso tipo di scadenza.</p>
+<p>E' disponibile uno specifico endpoint che per ogni articolo_rinnovo restituisce i possibili articoli sostituitivi.</p>
+<p>Per gli articoli inseriti successivamente e quindi non ancora importati in trace la procedura di cambio piano non è disponibile, poichè il cambio piano in quel caso avviene tramite cancellazione diretta dell'articolo e inserimento id un nuovo articolo.</p>
+<p>La procedura del cambio piano, dopo i controlli iniziali, varia in base al campo anticipo scadenza:</p>
+<p>Infatti se il campo anticipo scadenza è true significa che oltre a effettuare il cambio dell'articolo è necessario portare ad oggi la scadenza dell'articolo.</p>
+<p>Controlli iniziali:</p>
+<ol>
+<li>l'articolo rinnovo deve avere trace_id (non deve essere un nuovo articolo)</li>
+<li>l'articolo selezionato per il cambio deve rientrare nelle opzioni di cambio piano dell'articolo rinnovo</li>
+<li>l'articolo selezionato per il cambio deve avere id_trace compilato</li>
+</ol>
+<p>Procedura cambio piano (anticipa = true):</p>
+<ol>
+<li>Modifico articolo, prezzo, matricola e scadenza (oggi) dell'articolo rinnovo</li>
+<li>Controllo se esiste già un rinnovo dello stesso locale nel mese attuale</li>
+<li>Se non esiste creo un nuovo rinnovo nel mese attuale</li>
+<li>Inserisco l'articolo all'interno del rinnovo nel mese attuale</li>
+<li>Invio la modifica dell'articolo, del prezzo, della matricola e della scadenza a trace</li>
+<li>Se non sono presenti altri articoli_rinnovo imposto il rinnovo a completato</li>
+</ol>
+<p>Procedura cambio piano (anticipa = false):</p>
+<ol>
+<li>Modifico articolo, prezzo e matricola dell'articolo rinnovo</li>
+<li>Invio la modifica dell'articolo, del prezzo e della matricola a trace</li>
+</ol>
+<h3 id="metodi-di-pagamento">Metodi di pagamento</h3>
+<p>Il metodo di pagamento, salvato nella configurazione_rinnovo_locale, per questo tipo di rinnovo può essere uno qualsiasi di quelli disponibili</p>
+<h3 id="rinnovo">Rinnovo</h3>
+<p>Tutti gli articoli di un rinnovo vengono rinnovati insieme ma è comunque necessario analizzare ogni articolo_rinnovo poichè possono presentarsi diverse casistiche:</p>
+<ol>
+<li>Salvataggio storico: <br>Ogni riga della articolo_rinnovo del rinnovo viene copiata nella articolo_rinnovo_storico.</li>
+<li>
+<p>Import trace: <br>Il rinnovo viene comunicato a trace tramite la tabella t_trace:</p>
+</li>
+<li>
+<p>Se l'articolo_rinnovo ha il campo <b>trace_id a NULL</b>:
+     <br> Significa che è stato inserito manualmente dopo l'ultimo rinnovo, in questo caso viene passato il nuovo articolo a trace tramite un insert nella tabella t_trace con i seguenti campi:</p>
+<p><code>{
+        order_type_id:15,
+        customer_for_billing,
+        customer_id,
+        prg_location,
+        article_id,
+        price,
+        serial_number,
+        installation_date: now(),
+        due_date_maintenance,
+        type_billing,
+        payment_type,
+        create_operation (in base all'articolo)
+ }</code></p>
+</li>
+<li>
+<p>Se l'articolo_rinnovo ha il campo <b>trace_id diverso da NULL</b>:
+     <br> Significa che è stato importato dalla t_trace, in questo caso viene effettuato un update sul record della t_trace con trace_id corrispondente:</p>
+<p><code>{
+        price,
+        serial_number,
+        due_date_maintenance,
+        date_import_trace: null, (per import in trace)
+        date_import_rinnovi: null (per importare prossimo rinnovo)
+        create_operation (in base all'articolo)
+ }</code></p>
+</li>
+<li>
+<p>Generazione ordine di rinnovo: <br></p>
+</li>
+<li>
+<p>Per ogni rinnovo viene generato un ordine:</p>
+<p><code>{
+    data:now(),
+    cliente_fatt_alt,
+    cliente,
+    locale,
+    utente,
+    date_insert,
+    tipo: 15, (rinnovo)
+    is_closed: 1,
+    stato: 7, (evaso)
+    pagamento,
+    data_evasione: now(),
+    rinnovo,
+    tipo_fatturazione
+ }</code></p>
+</li>
+<li>
+<p>Gli articoli del rinnovo vengono raggruppati per id_articolo, sconto e prezzo, aumentando di conseguenza la quantità e poi inseriti nella articolo_ordine associati all'ordine appena creato:</p>
+<p><code>{
+        ordine,
+        articolo,
+        prezzo,
+        quantita,
+        sconto
+    }
+    ```</code></p>
+</li>
+<li>
+<p>Eliminazione articoli rinnovo</p>
+</li>
+<li>Impostazione rinnovo a completato</li>
+</ol>
+<h3 id="proposta">Proposta</h3>
+<p>Tutti gli articoli di un rinnovo con il campo proponi = 1 fanno parte della proposta di rinnovo</p>
+<p>In base a questo campo viene popolato il pdf di proposta di rinnovo.</p>
+<h2 id="mensilitrimestralisemestrali">Mensili/Trimestrali/Semestrali</h2>
+<p>I rinnovi mensili sono organizzati in due tabelle: mensile e articolo_mensile.</p>
+<p>Ad ogni articolo_mensile corrisponde uno ed un solo mensile, ad ogni mensile corrisponono uno o più articolo_mensile.</p>
+<p>N.B. A differenza dei rinnovi Annuali/Biennali/31-12 i rinnovi di questo tipo vengono eliminati una volta completati, per questo motivo non devono esistere mensili senza articoli_mensili collegati.</p>
+<h3 id="import-da-trace">Import da trace</h3>
+<p>I rinnovi vengono generati tramite import dalla tabella t_trace.</p>
+<p>La data di scadenza per ogni nuovo rinnovo è il primo giorno del mese successivo all'importazione.</p>
+<p>Creazione record mensili:</p>
+<ol>
+<li>Query di estrazione</li>
+</ol>
+<pre><code class="language-sql">SELECT t_trace.id as id_trace,articolo.id as articolo,t_trace.price
+as prezzo, t_trace.serial_number as matricola,cus1.id as cliente,
+cus2.id as cliente_fatt_alt, locale.id as locale,t_trace.type_billing
+as tipo_fatturazione
+  FROM t_trace
+  JOIN articolo ON articolo.id_trace = t_trace.article_id
+  JOIN cliente as cus1 ON cus1.id_trace = t_trace.customer_id
+  LEFT JOIN cliente as cus2
+  ON cus2.id_trace = t_trace.customer_for_billing
+  JOIN locale
+  ON locale.piva = cus1.piva AND locale.prg = t_trace.prg_location
+  WHERE
+  articolo.mth_1 = 1 AND deleted &lt;&gt; 1 AND date_import_monthly IS NULL
+</code></pre>
+<ol>
+<li>raggruppamento per cliente,locale, e tipo_fatturazione.</li>
+<li>Importazione</li>
+</ol>
+<h3 id="metodo-di-pagamento">Metodo di pagamento</h3>
+<p>Gli unici metodi di pagamento concessi sono quelli restituiti nella sezione canoni dei metodi di pagamento</p>
+<h3 id="configurazione-mensile-locale">Configurazione mensile locale</h3>
+<p>Tutti i mensili di un certo locale condividono alcune informazioni: pagamento, fatturazione alternativa e note.</p>
+<p>Questi dati vengono salvati all'interno della tabella configurazione_mensile_locale che prevede un record per ogni locale per il quale sono stati inseriti almeno uno dei campi scritti sopra.</p>
+<h4 id="fatturazione-per-cliente">Fatturazione per cliente</h4>
+<p>I rinnovi di uno stesso cliente ma con locali diversi, appartenenti allo stesso mese e anno di scadenza possono essere raggruppati in un solo ordine selezionando per i rinnovi desiderati il campo fatturazione per cliente.</p>
+<p>Vedi sotto come avviene il rinnovo.</p>
+<h3 id="rinnovo_1">Rinnovo</h3>
+<p>Il rinnovo avviene contemporaneamente per tutti i rinnovi di un certo mese e anno.</p>
+<ol>
+<li>Controllo iban:</li>
+</ol>
+<p><code>if group_billing = 1 then
+      if cliente.iban != null &amp;&amp; cliente.iban != "" then
+          return true
+      else
+          return false
+    else
+      if fatt_alternativa != null then
+        if cliente_fatt_alt.iban != null &amp;&amp; cliente_fatt_alt.iban != "" then
+            return true
+        else
+            return false
+      else
+        if locale.iban != null &amp;&amp; locale.iban != "" then
+            return true
+        else
+            if cliente.iban != null &amp;&amp; cliente.iban != "" then
+                return true
+            else
+                return false</code></p>
+<ol>
+<li>Controllo metodo di pagamento</li>
+<li>
+<p>Se tutti i mensili del mese attuale passano i controlli:</p>
+</li>
+<li>
+<p>Import trace (per ogni mensile):
+      <br>Il rinnovo viene comunicato a trace tramite la tabella t_trace:</p>
+<ul>
+<li>Se l'articolo_mensile ha il campo <b>trace_id a NULL</b>:
+    <br>
+    Significa che è stato inserito manualmente dopo l'ultimo rinnovo - Viene passato il nuovo articolo a trace tramite un <b>insert</b> nella tabella t_trace con i seguenti campi:
+    <code>json { order_type_id: 15, customer_for_billing, prg_location, article_id, price, serial_number, installation_date: now(), due_date_maintenance, type_billing, payment_type, create_operation (in base all'articolo) }</code><ul>
+<li>Viene <u>aggiornato l'articolo mensile</u> con l'id della t_trace del record appena inserito</li>
+</ul>
+</li>
+<li>Se l'articolo_rinnovo ha il campo <b>trace_id diverso da NULL</b>:
+    <br>
+    Significa che è stato importato dalla t_trace, in questo caso viene effettuato un <b>update</b> sul record della t_trace con trace_id corrispondente:
+    <code>json { price, serial_number, due_date_maintenance, date_import_trace: null, (per import in trace) date_import_monthly: now(), (non deve essere reimportato) create_operation: (in base all'articolo) }</code></li>
+</ul>
+</li>
+<li>
+<p>Generazione ordine di rinnovo</p>
+<ul>
+<li>Suddivisione fatturazione per cliente<ul>
+<li>i mensili con group_billing = 1 vengono divisi da quelli con group_billing = 0 e raggruppati per id cliente</li>
+</ul>
+</li>
+<li>
+<p>Generazione ordini fatturazione per cliente</p>
+<ul>
+<li>?? Sincronizzazione configurazioni locali ??</li>
+<li>Generazione ordine: <br>per ogni gruppo di mensili viene generato un ordine <u>utilizzando la configurazione del locale del rinnovo mensile con id più basso</u>, con i seguenti campi:</li>
+</ul>
+<p><code>{
+    data: now(),
+    cliente_fatt_alt,
+    cliente,
+    utente, (chi ha effettuato la richiesta)
+    totale,
+    date_insert,
+    tipo: 15, (rinnovo),
+    is_closed: 1,
+    stato: 7, (evaso)
+    pagamento,
+    data_evasione: now(),
+    mensile,
+    tipo_fatturazione
+  }</code></p>
+<ul>
+<li>Generazione articoli ordine: <br> gli articoli mensili di tutti gli articoli del gruppo vengono a loro volta <u>raggruppati per id articolo e prezzo</u>, aumentando la quantità di conseguenza, dopo di che vengono generati gli articoli ordine e associati all'ordine generato in precedenza con i seguenti campi:</li>
+</ul>
+<p><code>{ ordine, articolo, prezzo, quantita, sconto }</code></p>
+<ul>
+<li>descrizione_articolo_ordine:</li>
+<li>...</li>
+<li>...</li>
+</ul>
+</li>
+<li>
+<p>Generazione ordini per fatturazione classica</p>
+<ul>
+<li>Generazione ordine: <br>per ogni mensile viene generato un ordine con i seguenti campi:</li>
+</ul>
+<p><code>{
+    data: now(),
+    cliente_fatt_alt,
+    cliente,
+    locale,
+    utente, (chi ha effettuato la richiesta)
+    totale,
+    date_insert,
+    tipo: 15, (rinnovo)
+    is_closed: 1,
+    stato: 7, (evaso)
+    pagamento,
+    data_evasione: now(),
+    mensile,
+    tipo_fatturazione
+  }</code></p>
+<ul>
+<li>Generazione articoli ordine: <br> gli articoli del mensile vengono <u>raggruppati per id articolo e prezzo</u>, aumentando la quantità di conseguenza e dopo di che associati all'ordine generato in precedenza con i seguenti campi:</li>
+</ul>
+<p><code>{ ordine, articolo, prezzo, quantita, sconto }</code></p>
+<ul>
+<li>descrizione_articolo_ordine:</li>
+<li>...</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Aggiornamento mensili (per ogni mensile)</p>
+<ul>
+<li>
+<p>Calcolo la nuova data di scadenza del mensile come next_billing + tipo_fatturazione.mesi</p>
+<p><code>data.setMonth(data.getMonth() + tipo_fatturazione.mesi);</code></p>
+</li>
+<li>
+<p>Controllo se esiste già un mensile per questo tipo di fatturazione, locale, mese e anno:</p>
+<ul>
+<li>Se esiste sposto gli articoli nel mensile esistente e cancello il mensile vuoto</li>
+<li>Altrimenti modifico la data di scadenza del mensile con la data calcolata</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="cambio-piano_1">Cambio piano</h3>
+<p>E' possibile effettuare un cambio piano (modifica dell'articolo) con tutti gli articoli appartenenti allo stesso gruppo e con mth_1 = 1;</p>
+<p>E' disponibile uno specifico endpoint che per ogni articolo_mensile restituisce i possibili articoli sostituitivi.</p>
+<p>Per gli articoli inseriti successivamente e quindi non ancora importati in trace la procedura di cambio piano non è disponibile, poichè il cambio piano in quel caso avviene tramite cancellazione diretta dell'articolo e inserimento id un nuovo articolo.</p>
+<p>Controlli iniziali:</p>
+<ol>
+<li>l'articolo mensile deve avere trace_id (non deve essere un nuovo articolo)</li>
+<li>l'articolo selezionato per il cambio deve rientrare nelle opzioni di cambio piano dell'articolo mensile</li>
+<li>l'articolo selezionato per il cambio deve avere id_trace compilato</li>
+</ol>
+<p>Procedura cambio piano:</p>
+<ol>
+<li>Modifico articolo, prezzo e matricola dell'articolo mensile</li>
+<li>Invio la modifica dell'articolo, del prezzo e della matricola a trace</li>
+</ol>
+<h3 id="disdetta_1">Disdetta</h3>
+<p>E' possibile eliminare un articolo da un mensile effettuando la disdetta.</p>
+<p>La disdetta dell'articolo di un mensile consiste in:</p>
+<ul>
+<li>scrittura disdetta nella t_deleted:</li>
+</ul>
+<p><code>{
+    articolo,
+    prezzo,
+    matricola,
+    data_scadenza,
+    data_cancellazione: now(),
+    cliente,
+    locale,
+    motivazione,
+    utente: utente_richiesta,
+    note
+  }</code></p>
+<ul>
+<li>invio disdetta a trace (se trace_id != null)</li>
+</ul>
+<p><code>{
+    "deleted": 1,
+    "date_import_trace": null
+  }</code></p>
+<ul>
+<li>eliminazione dell'articolo mensile</li>
+<li>eliminazione del mensile (se non ci sono altri articoli)</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,86 @@
+site_name: T-Order Developers
+site_url: https://example.com
+nav:
+  - Home:
+      - index.md
+  - Architettura:
+      - architettura/index.md
+      - Database:
+          - architettura/database/index.md
+          - Schema: architettura/database/schema.md
+          - Diagramma ER: architettura/database/er.md
+      - Backend:
+          - architettura/backend/index.md
+          - Struttura: architettura/backend/struttura.md
+          - Casi d'uso:
+              - architettura/backend/casi-uso/index.md
+              # - CRUD: architettura/backend/casi-uso/crud.md
+              - CRUD:
+                  - architettura/backend/casi-uso/crud/index.md
+                  - Query: architettura/backend/casi-uso/crud/query.md
+              - Logiche di Business: architettura/backend/casi-uso/logiche-business.md
+              - Servizi Aggiuntivi: architettura/backend/casi-uso/servizi.md
+      - Frontend: architettura/frontend.md
+      - Javascript SDK: architettura/sdk.md
+      - Autenticazione: autenticazione/index.md
+  - Autenticazione:
+      - autenticazione/index.md
+      - Configurazione Auth0: autenticazione/auth0-config.md
+      - Utenti:
+          - autenticazione/utenti/index.md
+          - Generazione Utente: autenticazione/utenti/generazione-utente.md
+          - Privilegi e Ruoli: autenticazione/utenti/privilegi-ruoli.md
+  - Ordini:
+      - ordini/index.md
+      - Tabelle Coinvolte: ordini/tabelle_coinvolte.md
+      - Informazioni Ordine: ordini/informazioni_ordine.md
+      - Ciclo Ordine: ordini/ciclo_ordine.md
+  - Rinnovi:
+      - rinnovi/index.md
+      - Annuali/Biennali/31-12: rinnovi/annuali-biennali-31-12.md
+      - Mensili/Trimestrali/Semestrali: rinnovi/mensili-trimestrali-semestrali.md
+  - Integrazioni: integrazioni.md
+  - Esempi: esempi.md
+  - Demo: demo.md
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.indexes
+    - navigation.expand
+    # - search.share # copy to clipboard button on search
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/white-balance-sunny
+        name: Attiva dark mode
+    - scheme: slate
+      toggle:
+        icon: material/moon-waning-crescent
+        name: Disattiva dark mode
+  logo: assets/t-order-white.png
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+extra_css:
+  - stylesheets/extra.css
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/AndreFra96
+copyright: Copyright &copy; 2019 - 2022 Andrea Brioschi
+plugins:
+  - search
+  - swagger-ui-tag
+  # - encryptcontent:
+  #     global_password: "docuword"
+  #     remember_password: True
+  #     default_expire_dalay: 24
+repo_url: https://github.com/AndreFra96/torder-backend
+edit_uri: https://github.com/AndreFra96/torder-docs
+# theme: readthedocs

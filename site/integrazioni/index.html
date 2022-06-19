@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://example.com/integrazioni/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Integrazioni - T-Order Developers</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">T-Order Developers</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../ordini/" class="nav-link">Ordini</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../rinnovi/" class="nav-link">Rinnovi</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Integrazioni</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../esempi/" class="nav-link">Esempi</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../rinnovi/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../esempi/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#integrazioni" class="nav-link">Integrazioni</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#trace-t-order" class="nav-link">Trace → T-order</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#t-order-trace" class="nav-link">T-order → Trace</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#e-t-order" class="nav-link">E → T-order</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#t-order-e" class="nav-link">T-order → E</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#t_contact" class="nav-link">t_contact</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#creazione-nuovi-clientilocali" class="nav-link">Creazione nuovi clienti/locali:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="integrazioni">Integrazioni</h1>
+<p>T-Order è integrato direttamente con due software: Trace e E.</p>
+<p>Trace gestisce le anagrafiche dei clienti e il calendario degli interventi mentre E è un programma di contabilità che si occupa di generare impegni e fatture.</p>
+<h2 id="trace-t-order">Trace → T-order</h2>
+<p>Il passaggio di informazioni da Trace a T-order avviene tramite scrittura da parte di Trace nelle seguenti tabelle del database di T-Order (vecchio nome &rarr; nuovo nome):</p>
+<ul>
+<li>Clienti (t_customer &rarr; cliente)</li>
+<li>customer_id_trace &rarr; id_trace</li>
+<li>customer_ragsoc &rarr; ragsoc</li>
+<li>customer_indirizzo &rarr; via</li>
+<li>customer_cap &rarr; cap</li>
+<li>customer_city &rarr; citta</li>
+<li>customer_prov &rarr; provincia</li>
+<li>customer_piva &rarr; piva</li>
+<li>customer_codfisc &rarr; codfisc</li>
+<li>Locali (t_location &rarr; locale)</li>
+<li>location_loc_desc &rarr; nome</li>
+<li>location_address &rarr; via</li>
+<li>location_city &rarr; citta</li>
+<li>location_provincia &rarr; prov</li>
+<li>location_telephone &rarr; tel</li>
+<li>location_telephone1 &rarr; #ELIMINATO</li>
+<li>location_telephone2 &rarr; #ELIMINATO</li>
+<li>location_mail &rarr; mail</li>
+<li>Articoli (t_article &rarr; articolo)</li>
+<li>article_id_trace &rarr; id_trace</li>
+<li>article_title &rarr; title</li>
+<li>article_grp &rarr; gruppo</li>
+<li>cost_price &rarr; costo</li>
+<li>active &rarr; attivo</li>
+<li>import_trace &rarr; import_trace</li>
+<li>data_insert &rarr; data_insert</li>
+<li>data_update &rarr; data_update</li>
+<li>Gruppi Articoli (t_group &rarr; gruppo)</li>
+<li>group_loc_desc &rarr; descrizione</li>
+<li>group_id_trace &rarr; id_trace</li>
+<li>group_order &rarr; #ELIMINATO</li>
+<li>group_type_id &rarr; tipo_gruppo</li>
+<li>Prezzi (t_article_price &rarr; prezzo)</li>
+<li>cod_art &rarr; cod_art</li>
+<li>cod_listino &rarr; cod_listino</li>
+<li>prg_listino &rarr; prg_listino</li>
+<li>prz_listino &rarr; prz_listino</li>
+<li>data_insert &rarr; data_insert</li>
+<li>data_update &rarr; data_update</li>
+<li>t_trace:</li>
+<li>Nuovi articoli cliente</li>
+</ul>
+<h2 id="t-order-trace">T-order → Trace</h2>
+<ul>
+<li>Trace legge da t_trace se date_import_trace è null &amp; tipo != 5</li>
+<li>Se deleted = 1: (Disdetta)<ul>
+<li>Effettua disdetta basata su trace_id</li>
+</ul>
+</li>
+<li>Se id_trace non è compilato: (Creazione)<ul>
+<li>customer_id</li>
+<li>prg_location</li>
+<li>article_id</li>
+<li>serial_number</li>
+<li>installation_date</li>
+<li>due_date_maintenance</li>
+</ul>
+</li>
+<li>Se id_trace è compilato: (Modifica)<ul>
+<li>customer_id</li>
+<li>prg_location</li>
+<li>article_id</li>
+<li>serial_number</li>
+<li>installation_date</li>
+<li>due_date_maintenance</li>
+</ul>
+</li>
+<li>Trace legge z_trace_scaduti ??</li>
+</ul>
+<h2 id="e-t-order">E → T-order</h2>
+<ul>
+<li>E scrive nelle tabelle:</li>
+<li>ex_insoluti</li>
+<li>ex_invoice</li>
+<li>ex_invoice_item</li>
+<li>ex_scaduti</li>
+<li>Metodi di pagamento (t_payment_esatto)</li>
+<li>E effettua modifiche:</li>
+<li>cambia stato ordine &rarr; impegno (ordine)</li>
+<li>ordine.order_id_esatto (numero impegno)</li>
+<li>ordine.is_billed (data_fatturazione)</li>
+<li>ordine.has_rid (appalto)</li>
+<li>ordine.rid_date</li>
+<li>ordine.invoice_nr (numero fattura)</li>
+<li>ordine.impegno_nr (numero impegno)</li>
+<li>ordine.invoice_id (id fattura)</li>
+<li>articolo_ordine.date_esatto (data import e)</li>
+<li>articolo_ordine.item_id_esatto (id item e)</li>
+<li>t_order_item_desc.date_import_e (data import e)</li>
+<li>t_order_item_desc.id_esatto (id e)</li>
+<li>cliente.id_trace (aggiorna cliente con id_trace)</li>
+<li>locale.prg (aggiorna locale con prg)</li>
+</ul>
+<h2 id="t-order-e">T-order → E</h2>
+<ul>
+<li>E legge da viste:</li>
+<li>e_order (unione di e_order_customer e e_order_customer_fb)</li>
+<li>e_order_item</li>
+<li>e_ratei</li>
+<li>e_rinnovi</li>
+<li>e_rinnovi_item</li>
+<li>e_rinnovi_item_desc</li>
+</ul>
+<h2 id="t_contact">t_contact</h2>
+<p>La tabella t_contact è direttamente condivisa fra Trace e T-Order e contiene i contatti dei clienti.</p>
+<p>Trace legge e scrive senza nostri id cliente/locale.</p>
+<h2 id="creazione-nuovi-clientilocali">Creazione nuovi clienti/locali:</h2>
+<p>Procedura di generazione di nuovi clienti/locali a partire da T-Order:</p>
+<ol>
+<li>e legge vista preventivo con nuovo cliente/locale</li>
+<li>crea anagrafica cliente</li>
+<li>crea anagrafica locale</li>
+<li>aggiorna il nostro database con id cliente (via piva)</li>
+<li>aggiorna il nostro database con prg locale (locale senza prg con piva)</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
