@@ -81,6 +81,6 @@ plugins:
   #     global_password: "docuword"
   #     remember_password: True
   #     default_expire_dalay: 24
-repo_url: https://github.com/AndreFra96/torder-backend
-edit_uri: https://github.com/AndreFra96/torder-docs
+repo_url: https://github.com/AndreFra96/torder-docs
+edit_uri: https://github.com/AndreFra96/torder-docs/tree/main/docs
 # theme: readthedocs

@@ -1,0 +1,12 @@
+:root > * {
+    --md-primary-fg-color: #cc3162;
+    --md-typeset-a-color: #cc3162;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #952649;
+}
+
+.md-nav__link:hover{
+    color: #cc3162
+}
