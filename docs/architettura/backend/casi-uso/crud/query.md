@@ -58,22 +58,14 @@ Per ottenere questo tipo di relazione in un database relazionale è necessario i
 
 Per eseguire join da endpoint `GET api/locale` devo comporre la stringa in questo modo:
 
-- `"locale_configurazione_mensile_locale"` &rarr; per collegare la configurazione mensile
-- `"locale_configurazione_rinnovo_locale"` &rarr; per collegare la configurazione rinnovo
+- `"configurazione_mensile_locale"` &rarr; per collegare la configurazione mensile
+- `"configurazione_rinnovo_locale"` &rarr; per collegare la configurazione rinnovo
 
 Per eseguire join da endpoint `GET api/configurazione_mensile_locale` o da `GET api/configurazione_mensile_locale` devo utilizzare la stringa `"locale_locale"`
 
-Per effettuare una join a partire dalla tabella contenente la chiave esterna, la stringa si compone in questo modo:
-
-`"[chiave]_[nome_altra_tabella]"`
-
-Per effettuare una join a partire dalla tabella senza la chiave esterna, la stringa si compone in questo modo:
-
-per comporre la stringa è sufficente tradurre il pensiero `tramite il campo abc collego la tabella def` nella stringa `abc_def`
-
 !!! example "Esempio"
 
-    La tabella configurazione_mensile_locale ha un campo locale che che contiene l'id di uno specifico record nella tabella locale, la query che dovrò passare all'endpoint `GET api/configurazione_mensile_locale/:id` è la seguente:
+    `GET api/configurazione_mensile_locale`
 
     ``` json
     {
@@ -83,49 +75,113 @@ per comporre la stringa è sufficente tradurre il pensiero `tramite il campo abc
     }
     ```
 
-    Risponde alla frase: "tramite il campo locale includo la tabella locale"
+    `GET api/locale`
 
-hasOne
-
-belongsTo
+    ``` json
+    {
+        "options":{
+            "include":["configurazione_mensile_locale"]
+        }
+    }
+    ```
 
 ##### Relazione 1:N
 
-belongsTo
+In una relazione "uno a molti", un record in una tabella può essere associato a uno o più record in un'altra tabella.
 
-!!! example "Esempio"
+Chiamiamo `tabella base` la tabella con cardinalità 1 e `tabella associata` la tabella con cardinalità N, per ogni record della tabella base esistono più record della tabella associata mentre ogni record della tabella associata è legato ad ad un singolo recod della tabella base.
 
-    La tabella cliente ha un campo locale che che contiene l'id di uno specifico record nella tabella locale, la query che dovrò passare all'endpoint `GET api/cliente/:id` è la seguente:
+Questo tipo di relazione è ottenuta inserendo una chiave esterna nella tabella associata che corrisponde ad un record della tabella base.
+
+La stringa da utilizzare in questo caso dipende dall'endpoint che sto utilizzando:
+
+Se sto utilizzando l'endpoint della tabella base la stringa sarà composta aggiungendo una `s` finale al nome della tabella associata: `"[nome_associata]s"`, altrimenti se sto utilizzando l'endpoint della tabella associata compongo la stringa come `"[nome_chiave_esterna]_[nome_base]"`
+
+!!! example "Esempio da tabella base"
+
+    Un locale ha molti contatti e un contatto è legato ad un unico locale, la tabella contatto ha un campo locale che che contiene l'id di uno specifico record nella tabella locale.
+
+    `GET api/locale/:id`
+
 
     ``` json
+
+    //Query:
+
+    {
+        "options":{
+            "include":["contattos"]
+        }
+    }
+
+    //Risposta:
+
+    {
+        "id": "id_locale"
+        "nome": "nome_locale",
+        "via": "indirizzo",
+        ... ,
+        "contattos":[
+            {
+                "id":"id_contatto",
+                ...
+            },
+            {
+                "id":"id_contatto",
+                ...
+            },
+            ...
+        ]
+    }
+    ```
+
+!!! example "Esempio da tabella associata"
+
+    Un contatto corrisponde ad un unico locale.
+
+
+    `GET api/contatto/:id`
+
+    ``` json
+
+    //Query:
+
     {
         "options":{
             "include":["locale_locale"]
         }
     }
-    ```
 
-    Risponde alla frase: "tramite il campo locale includo la tabella locale"
+    //Risposta:
 
-    La richiesta restituirà un oggetto di questo tipo:
-
-    ``` json
     {
-        "id": "id_cliente"
-        "nome": "nome_cliente",
-        "ragsoc": "ragione_sociale",
+        "id": "id_contatto"
+        "id_trace": "id_trace_contatto",
         ... ,
         "locale": "id_locale",
         "locale_locale":{
-            "id_locale",
+            "id":"id_locale",
             ...
         }
     }
     ```
 
-    Se per qualsiasi motivo non è possibile collegare il cliente al locale il campo `locale_locale` sarà <b>null</b>
-
 ##### Relazione N:M
+
+Una relazione "molti a molti" si verifica quando più record in una tabella sono associati a più record in un'altra tabella.
+
+Questo tipo di relazione è ottenuta tramite la creazione di una terza tabella, detta `tabella di relazione`.
+
+Il database di t-order presenta 3 tabelle di relazione:
+
+- article_change  
+  Relazione ricorsiva sulla tabella articolo, questa relazione esprime il concetto di sostituibilità di un articolo.
+
+- article_parent  
+  Relazione ricorsiva sulla tabella articolo, questa relazione esprime il concetto di gerarchia fra articoli con articoli padri e articoli figli.
+
+- articolo_cliente_ordine  
+  Relazione fra la tabella articolo e la tabella ordine, questa relazione esprime il concetto di articoli cliente legati all'ordine (questi articoli non fanno parte del carrello, sono gli articoli che il cliente ha già a disposizione che devono essere inviati a trace nel momento dell'evasione dell'ordine)
 
 #### Nested Join
 
