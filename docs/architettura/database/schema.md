@@ -293,7 +293,7 @@
 | 6   | locale            | int      | 4          |
 | 7   | creation_date     | date     | 3          |
 | 8   | tipo_fatturazione | int      | 4          |
-| 11  | group_billing     | binary   | 1          |
+| 9  | group_billing     | binary   | 1          |
 
 ## motivazione
 
@@ -399,15 +399,11 @@
 | --- | ---------------- | -------- | ---------- |
 | 1   | id               | int      | 4          |
 | 2   | cliente          | int      | 4          |
-| 3   | fatt_alternativa | int      | 4          |
 | 4   | locale           | int      | 4          |
 | 5   | mese             | date     | 3          |
 | 6   | ordine_generato  | int      | 4          |
-| 7   | note             | nvarchar | 2048       |
-| 8   | pagamento        | int      | 4          |
-| 9   | ricorrente       | binary   | 1          |
-| 10  | mail_inviata     | binary   | 1          |
-| 11  | completato       | binary   | 1          |
+| 7  | mail_inviata     | binary   | 1          |
+| 8  | completato       | binary   | 1          |
 
 ## stato
 
