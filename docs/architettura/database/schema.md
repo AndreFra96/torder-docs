@@ -78,16 +78,6 @@
 | 8   | date_esatto      | date    | 3          |
 | 9   | item_id_esatto   | int     | 4          |
 
-## articolo_proposta
-
-| Id  | Descrizione | Tipo    | Dimensione |
-| --- | ----------- | ------- | ---------- |
-| 1   | id          | int     | 4          |
-| 2   | proposta    | int     | 4          |
-| 3   | articolo    | int     | 4          |
-| 4   | prezzo      | decimal | 9          |
-| 5   | quantita    | int     | 4          |
-| 6   | sconto      | decimal | 9          |
 
 ## articolo_rinnovo
 
@@ -398,22 +388,6 @@
 | 1   | id          | int      | 4          |
 | 2   | descrizione | nvarchar | 100        |
 
-## proposta
-
-| Id  | Descrizione       | Tipo      | Dimensione |
-| --- | ----------------- | --------- | ---------- |
-| 1   | id                | int       | 4          |
-| 2   | data              | datetime2 | 6          |
-| 3   | cliente           | int       | 4          |
-| 4   | locale            | int       | 4          |
-| 5   | utente            | int       | 4          |
-| 6   | totale            | decimal   | 9          |
-| 7   | date_insert       | datetime2 | 6          |
-| 8   | date_lastupdate   | datetime2 | 6          |
-| 9   | pagamento         | int       | 4          |
-| 10  | utente_lastupdate | int       | 4          |
-| 11  | utente_mail       | int       | 4          |
-| 12  | mese              | date      | 3          |
 
 ## reparto
 
