@@ -1,11 +1,5 @@
 # Schema
 
-## article_change
-
-| Id  | Descrizione     | Tipo | Dimensione |
-| --- | --------------- | ---- | ---------- |
-| 1   | articolo        | int  | 4          |
-| 2   | articolo_cambio | int  | 4          |
 
 ## article_parent
 
