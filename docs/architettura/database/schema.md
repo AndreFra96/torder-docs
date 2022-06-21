@@ -288,14 +288,11 @@
 | --- | ----------------- | -------- | ---------- |
 | 1   | id                | int      | 4          |
 | 2   | cliente           | int      | 4          |
-| 3   | cliente_fatt_alt  | int      | 4          |
 | 4   | date_billing      | date     | 3          |
 | 5   | next_billing      | date     | 3          |
 | 6   | locale            | int      | 4          |
 | 7   | creation_date     | date     | 3          |
 | 8   | tipo_fatturazione | int      | 4          |
-| 9   | pagamento         | nvarchar | 490        |
-| 10  | note              | nvarchar | 2048       |
 | 11  | group_billing     | binary   | 1          |
 
 ## motivazione
