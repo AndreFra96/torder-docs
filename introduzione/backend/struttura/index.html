@@ -1,0 +1,916 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://example.com/introduzione/backend/struttura/" rel="canonical"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.0, mkdocs-material-8.3.9" name="generator"/>
+<title>Struttura - T-Order Developers</title>
+<link href="../../../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#struttura">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="T-Order Developers" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="T-Order Developers">
+<img alt="logo" src="../../../assets/t-order-white.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            T-Order Developers
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Struttura
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Attiva dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Attiva dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81 1.42-1.42M1 13h3v-2H1m12 9h-2v3h2"></path></svg>
+</label>
+<input aria-label="Disattiva dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Disattiva dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12a10 10 0 0 0 13 9.54 10 10 0 0 1 0-19.08A10 10 0 0 0 2 12Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/AndreFra96/torder-docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../">
+        Introduzione
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../autenticazione/">
+        Autenticazione
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../ordini/">
+        Ordini
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../rinnovi/">
+        Rinnovi
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../integrazioni/">
+      Integrazioni
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../esempi/">
+      Esempi
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../demo/">
+      Demo
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="T-Order Developers" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="T-Order Developers">
+<img alt="logo" src="../../../assets/t-order-white.png"/>
+</a>
+    T-Order Developers
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/AndreFra96/torder-docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Home</a>
+</div>
+<nav aria-label="Home" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../">Introduzione</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Introduzione" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Introduzione
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../database/">Database</a>
+<label for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Database" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          Database
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/schema/">
+        Schema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../database/er/">
+        Diagramma ER
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">Backend</a>
+<label for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Backend" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          Backend
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Struttura
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../utilizzo/">Utilizzo</a>
+<label for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Utilizzo" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Utilizzo
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3_3_2" id="__nav_2_3_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../utilizzo/crud/">CRUD</a>
+<label for="__nav_2_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="CRUD" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+          CRUD
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utilizzo/crud/query/">
+        Query
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utilizzo/logiche-business/">
+        Logiche di Business
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utilizzo/servizi/">
+        Servizi Aggiuntivi
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../frontend/">
+        Frontend
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sdk/">
+        Javascript SDK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../autenticazione/">
+        Autenticazione
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../autenticazione/">Autenticazione</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Autenticazione" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Autenticazione
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../autenticazione/auth0-config/">
+        Configurazione Auth0
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../autenticazione/utenti/">Utenti</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Utenti" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          Utenti
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../autenticazione/utenti/generazione-utente/">
+        Generazione Utente
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../autenticazione/utenti/privilegi-ruoli/">
+        Privilegi e Ruoli
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../ordini/">Ordini</a>
+<label for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Ordini" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Ordini
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ordini/tabelle_coinvolte/">
+        Tabelle Coinvolte
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ordini/informazioni_ordine/">
+        Informazioni Ordine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../ordini/ciclo_ordine/">
+        Ciclo Ordine
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../rinnovi/">Rinnovi</a>
+<label for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Rinnovi" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Rinnovi
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rinnovi/annuali-biennali-31-12/">
+        Annuali/Biennali/31-12
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../rinnovi/mensili-trimestrali-semestrali/">
+        Mensili/Trimestrali/Semestrali
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../integrazioni/">
+        Integrazioni
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../esempi/">
+        Esempi
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../demo/">
+        Demo
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/AndreFra96/torder-docs/tree/main/docs/introduzione/backend/struttura.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="struttura">Struttura</h1>
+<div class="highlight"><pre><span></span><code>src
+ ┣ @types
+ ┃ ┣ express
+ ┃ ┃ ┗ index.d.ts
+ ┃ ┣ ImportMensile.ts
+ ┃ ┣ ImportRinnovo.ts
+ ┃ ┣ OrderConfiguration.ts
+ ┃ ┗ SerialActivation.ts
+ ┣ config
+ ┃ ┣ cors.ts
+ ┃ ┣ csp.ts
+ ┃ ┣ fileUpload.ts
+ ┃ ┣ morgan.ts
+ ┃ ┣ sequelize.ts
+ ┃ ┣ swagger.ts
+ ┃ ┗ winston.ts
+ ┣ controllers
+ ┃ ┣ ArticleChangeCtrl.ts
+ ┃ ┣ ArticleParentCtrl.ts
+ ┃ ┣ ArticoloClienteOrdineCtrl.ts
+ ┃ ┣ ArticoloCtrl.ts
+ ┃ ┣ ArticoloMensileCtrl.ts
+ ┃ ┣ ArticoloOrdineCtrl.ts
+ ┃ ┣ ArticoloPropostaCtrl.ts
+ ┃ ┣ ArticoloRinnovoCtrl.ts
+ ┃ ┣ ArticoloRinnovoStoricoCtrl.ts
+ ┃ ┣ AttivazioneArticoloOrdineCtrl.ts
+ ┃ ┣ CambioPianoCtrl.ts
+ ┃ ┣ ClienteCtrl.ts
+ ┃ ┣ ConfigurazioneMensileLocaleCtrl.ts
+ ┃ ┣ ConfigurazioneRinnovoLocaleCtrl.ts
+ ┃ ┣ ContattoCtrl.ts
+ ┃ ┣ CostruttoreCtrl.ts
+ ┃ ┣ DisdettaCtrl.ts
+ ┃ ┣ GruppoCassaincloudCtrl.ts
+ ┃ ┣ GruppoCtrl.ts
+ ┃ ┣ LocaleCtrl.ts
+ ┃ ┣ MacroTipoArticoloCtrl.ts
+ ┃ ┣ MailCtrl.ts
+ ┃ ┣ MatricolaArticoloOrdineCtrl.ts
+ ┃ ┣ MensileCtrl.ts
+ ┃ ┣ MotivazioneCtrl.ts
+ ┃ ┣ NumbersCtrl.ts
+ ┃ ┣ OrdineCtrl.ts
+ ┃ ┣ PDFCtrl.ts
+ ┃ ┣ PagamentoMensileCtrl.ts
+ ┃ ┣ PrezzoCtrl.ts
+ ┃ ┣ ProfiloContattoCtrl.ts
+ ┃ ┣ ProfiloLocaleCtrl.ts
+ ┃ ┣ PropostaCtrl.ts
+ ┃ ┣ RepartoCtrl.ts
+ ┃ ┣ RinnovoCtrl.ts
+ ┃ ┣ StatoCtrl.ts
+ ┃ ┣ TPaymentEsattoCtrl.ts
+ ┃ ┣ TTraceCtrl.ts
+ ┃ ┣ TipoArticoloCtrl.ts
+ ┃ ┣ TipoFatturazioneCtrl.ts
+ ┃ ┣ TipoGruppoCtrl.ts
+ ┃ ┣ TipoOrdineCtrl.ts
+ ┃ ┗ UtenteCtrl.ts
+ ┣ crons
+ ┃ ┣ import_mensili_cron.ts
+ ┃ ┗ import_rinnovi_cron.ts
+ ┣ images
+ ┃ ┣ .DS_Store
+ ┃ ┣ logo_rca.png
+ ┃ ┣ placeholder.png
+ ┃ ┗ placeholder_black.png
+ ┣ logs
+ ┃ ┣ debug
+ ┃ ┃ ┗ YYYY-MM-DD.log
+ ┃ ┣ error
+ ┃ ┃ ┗ YYYY-MM-DD.log
+ ┃ ┣ http
+ ┃ ┃ ┗ YYYY-MM-DD.log
+ ┃ ┣ info
+ ┃ ┃ ┗ YYYY-MM-DD.log
+ ┃ ┣ mail
+ ┃ ┃ ┗ YYYY-MM-DD.log
+ ┃ ┣ sequelize
+ ┃ ┃ ┗ YYYY-MM-DD.log
+ ┃ ┣ socket
+ ┃ ┃ ┣ percentuale.log
+ ┃ ┃ ┗ report.log
+ ┃ ┗ .DS_Store
+ ┣ middlewares
+ ┃ ┣ editStatusCheck.middleware.ts
+ ┃ ┣ extractOptions.middleware.ts
+ ┃ ┣ jwt.auth.ts
+ ┃ ┣ privilegiOrdineUtente.middleware.ts
+ ┃ ┗ sequelizeMapping.middleware.ts
+ ┣ models
+ ┃ ┣ article_change.ts
+ ┃ ┣ article_parent.ts
+ ┃ ┣ articolo.ts
+ ┃ ┣ articolo_cliente_ordine.ts
+ ┃ ┣ articolo_mensile.ts
+ ┃ ┣ articolo_ordine.ts
+ ┃ ┣ articolo_proposta.ts
+ ┃ ┣ articolo_rinnovo.ts
+ ┃ ┣ articolo_rinnovo_storico.ts
+ ┃ ┣ attivazione_articolo_ordine.ts
+ ┃ ┣ cambio_piano.ts
+ ┃ ┣ cliente.ts
+ ┃ ┣ configurazione_mensile_locale.ts
+ ┃ ┣ configurazione_rinnovo_locale.ts
+ ┃ ┣ contatto.ts
+ ┃ ┣ costruttore.ts
+ ┃ ┣ disdetta.ts
+ ┃ ┣ gruppo.ts
+ ┃ ┣ gruppo_cassaincloud.ts
+ ┃ ┣ init-models.ts
+ ┃ ┣ locale.ts
+ ┃ ┣ macro_tipo_articolo.ts
+ ┃ ┣ matricola_articolo_ordine.ts
+ ┃ ┣ mensile.ts
+ ┃ ┣ motivazione.ts
+ ┃ ┣ numbers.ts
+ ┃ ┣ ordine.ts
+ ┃ ┣ pagamento_mensile.ts
+ ┃ ┣ prezzo.ts
+ ┃ ┣ profilo_contatto.ts
+ ┃ ┣ profilo_locale.ts
+ ┃ ┣ proposta.ts
+ ┃ ┣ reparto.ts
+ ┃ ┣ rinnovo.ts
+ ┃ ┣ stato.ts
+ ┃ ┣ t_payment_esatto.ts
+ ┃ ┣ t_trace.ts
+ ┃ ┣ tipo_articolo.ts
+ ┃ ┣ tipo_fatturazione.ts
+ ┃ ┣ tipo_gruppo.ts
+ ┃ ┣ tipo_ordine.ts
+ ┃ ┗ utente.ts
+ ┣ pre-start
+ ┃ ┣ env
+ ┃ ┃ ┣ development.env
+ ┃ ┃ ┣ production.env
+ ┃ ┃ ┗ test.env
+ ┃ ┗ index.ts
+ ┣ public
+ ┃ ┣ docs
+ ┃ ┣ frontend
+ ┃ ┃ ┣ css
+ ┃ ┃ ┃ ┣ app.5b757f3b.css
+ ┃ ┃ ┃ ┗ chunk-vendors.aaf76455.css
+ ┃ ┃ ┣ js
+ ┃ ┃ ┃ ┣ app.477e768d.js
+ ┃ ┃ ┃ ┣ app.477e768d.js.map
+ ┃ ┃ ┃ ┣ chunk-vendors.aa68b2bd.js
+ ┃ ┃ ┃ ┗ chunk-vendors.aa68b2bd.js.map
+ ┃ ┃ ┣ vendors
+ ┃ ┃ ┃ ┗ bootstrap.bundle.min.js
+ ┃ ┃ ┣ custom.css
+ ┃ ┃ ┣ favicon.ico
+ ┃ ┃ ┣ index.html
+ ┃ ┃ ┣ logo.png
+ ┃ ┃ ┣ t-order.svg
+ ┃ ┃ ┗ torder_logo.png
+ ┃ ┣ scripts
+ ┃ ┃ ┣ init_guest_home.js
+ ┃ ┃ ┗ redoc.standalone.js
+ ┃ ┗ openapi.json
+ ┣ repositories
+ ┃ ┣ ArticleChangeRepo.ts
+ ┃ ┣ ArticleParentRepo.ts
+ ┃ ┣ ArticoloClienteOrdineRepo.ts
+ ┃ ┣ ArticoloMensileRepo.ts
+ ┃ ┣ ArticoloOrdineRepo.ts
+ ┃ ┣ ArticoloPropostaRepo.ts
+ ┃ ┣ ArticoloRepo.ts
+ ┃ ┣ ArticoloRinnovoRepo.ts
+ ┃ ┣ ArticoloRinnovoStoricoRepo.ts
+ ┃ ┣ AttivazioneArticoloOrdineRepo.ts
+ ┃ ┣ CambioPianoRepo.ts
+ ┃ ┣ ClienteRepo.ts
+ ┃ ┣ ConfigurazioneMensileLocaleRepo.ts
+ ┃ ┣ ConfigurazioneRinnovoLocaleRepo.ts
+ ┃ ┣ ContattoRepo.ts
+ ┃ ┣ CostruttoreRepo.ts
+ ┃ ┣ DisdettaRepo.ts
+ ┃ ┣ GruppoCassaincloudRepo.ts
+ ┃ ┣ GruppoRepo.ts
+ ┃ ┣ LocaleRepo.ts
+ ┃ ┣ MacroTipoArticoloRepo.ts
+ ┃ ┣ MatricolaArticoloOrdineRepo.ts
+ ┃ ┣ MensileRepo.ts
+ ┃ ┣ MotivazioneRepo.ts
+ ┃ ┣ NumbersRepo.ts
+ ┃ ┣ OrdineRepo.ts
+ ┃ ┣ PagamentoMensileRepo.ts
+ ┃ ┣ PrezzoRepo.ts
+ ┃ ┣ ProfiloContattoRepo.ts
+ ┃ ┣ ProfiloLocaleRepo.ts
+ ┃ ┣ PropostaRepo.ts
+ ┃ ┣ RepartoRepo.ts
+ ┃ ┣ RinnovoRepo.ts
+ ┃ ┣ StatoRepo.ts
+ ┃ ┣ TPaymentEsattoRepo.ts
+ ┃ ┣ TipoArticoloRepo.ts
+ ┃ ┣ TipoFatturazioneRepo.ts
+ ┃ ┣ TipoGruppoRepo.ts
+ ┃ ┣ TipoOrdineRepo.ts
+ ┃ ┣ TraceRepo.ts
+ ┃ ┗ UtenteRepo.ts
+ ┣ routes
+ ┃ ┣ AccessToken.route.ts
+ ┃ ┣ ArticleChange.route.ts
+ ┃ ┣ ArticleParent.route.ts
+ ┃ ┣ Articolo.route.ts
+ ┃ ┣ ArticoloClienteOrdine.route.ts
+ ┃ ┣ ArticoloMensile.route.ts
+ ┃ ┣ ArticoloOrdine.route.ts
+ ┃ ┣ ArticoloProposta.route.ts
+ ┃ ┣ ArticoloRinnovo.route.ts
+ ┃ ┣ ArticoloRinnovoStorico.route.ts
+ ┃ ┣ AttivazioneArticoloOrdine.route.ts
+ ┃ ┣ CambioPiano.route.ts
+ ┃ ┣ Cliente.route.ts
+ ┃ ┣ ConfigurazioneMensileLocale.route.ts
+ ┃ ┣ ConfigurazioneRinnovoLocale.route.ts
+ ┃ ┣ Contatto.route.ts
+ ┃ ┣ Costruttore.route.ts
+ ┃ ┣ Disdetta.route.ts
+ ┃ ┣ File.route.ts
+ ┃ ┣ Gruppo.route.ts
+ ┃ ┣ GruppoCassaincloud.route.ts
+ ┃ ┣ Guest.route.ts
+ ┃ ┣ Locale.route.ts
+ ┃ ┣ Logs.route.ts
+ ┃ ┣ MacroTipoArticolo.route.ts
+ ┃ ┣ Mail.route.ts
+ ┃ ┣ MatricolaArticoloOrdine.route.ts
+ ┃ ┣ Mensile.route.ts
+ ┃ ┣ Motivazione.route.ts
+ ┃ ┣ Numbers.route.ts
+ ┃ ┣ Ordine.route.ts
+ ┃ ┣ PDF.route.ts
+ ┃ ┣ PagamentoMensile.route.ts
+ ┃ ┣ Prezzo.route.ts
+ ┃ ┣ ProfiloContatto.route.ts
+ ┃ ┣ ProfiloLocale.route.ts
+ ┃ ┣ Proposta.route.ts
+ ┃ ┣ Reparto.route.ts
+ ┃ ┣ Rinnovo.route.ts
+ ┃ ┣ Stato.route.ts
+ ┃ ┣ TPaymentEsatto.route.ts
+ ┃ ┣ Test.route.ts
+ ┃ ┣ TipoArticolo.route.ts
+ ┃ ┣ TipoFatturazione.route.ts
+ ┃ ┣ TipoGruppo.route.ts
+ ┃ ┣ TipoOrdine.route.ts
+ ┃ ┣ Trace.route.ts
+ ┃ ┣ Utente.route.ts
+ ┃ ┗ index.ts
+ ┣ services
+ ┃ ┣ Auth0Mangement.service.ts
+ ┃ ┣ Encrypt.service.ts
+ ┃ ┣ FileManager.service.ts
+ ┃ ┣ Mailing.service.ts
+ ┃ ┣ PDFGenerator.service.ts
+ ┃ ┣ QrCodeGenerator.service.ts
+ ┃ ┗ Telegram.service.ts
+ ┣ shared
+ ┃ ┣ api_error_handler.ts
+ ┃ ┣ constants.ts
+ ┃ ┣ fillTemplate.ts
+ ┃ ┣ functions.ts
+ ┃ ┣ hashCode.ts
+ ┃ ┣ sqlize_models_mapping.ts
+ ┃ ┗ sqlize_op_mapping.ts
+ ┣ sockets
+ ┃ ┣ main.socket.ts
+ ┃ ┗ watch.approach.socket.ts
+ ┣ templates
+ ┃ ┣ order.template.html
+ ┃ ┣ ordine_rinnovo.template.html
+ ┃ ┗ preventivo.template.html
+ ┣ uploads
+ ┃ ┣ ordini
+ ┃ ┃ ┣ 12418
+ ┃ ┃ ┣ 12863
+ ┃ ┃ ┣ 12934
+ ┃ ┃ ┣ 12938
+ ┃ ┃ ┣ 12939
+ ┃ ┃ ┃ ┗ docs2.html
+ ┃ ┃ ┣ 12944
+ ┃ ┃ ┣ 12952
+ ┃ ┃ ┗ .DS_Store
+ ┃ ┣ temp
+ ┃ ┃ ┣ 1650466151379
+ ┃ ┃ ┃ ┗ R-24187.pdf
+ ┃ ┃ ┣ 1650791825997
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650811644623
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650811712608
+ ┃ ┃ ┃ ┗ O-12941.pdf
+ ┃ ┃ ┣ 1650833591425
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650842440375
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650842547460
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650842763732
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650842825178
+ ┃ ┃ ┃ ┗ R-24245.pdf
+ ┃ ┃ ┣ 1650842853416
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650878554880
+ ┃ ┃ ┃ ┗ R-24245.pdf
+ ┃ ┃ ┣ 1650885652306
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650885880065
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1650885947963
+ ┃ ┃ ┃ ┗ O-12944.pdf
+ ┃ ┃ ┣ 1651578136585
+ ┃ ┃ ┃ ┗ R-24194.pdf
+ ┃ ┃ ┣ 1651653452992
+ ┃ ┃ ┃ ┗ O-12952.pdf
+ ┃ ┃ ┣ 1651661753954
+ ┃ ┃ ┃ ┗ R-24194.pdf
+ ┃ ┃ ┣ 1651670766678
+ ┃ ┃ ┃ ┗ O-12951.pdf
+ ┃ ┃ ┣ 1651670773724
+ ┃ ┃ ┃ ┗ R-24194.pdf
+ ┃ ┃ ┣ 1652124450182
+ ┃ ┃ ┃ ┗ R-26045.pdf
+ ┃ ┃ ┣ 1652195941204
+ ┃ ┃ ┃ ┗ R-25298.pdf
+ ┃ ┃ ┣ 1652197890419
+ ┃ ┃ ┃ ┗ R-25310.pdf
+ ┃ ┃ ┣ 1652969139256
+ ┃ ┃ ┃ ┗ O-13016.pdf
+ ┃ ┃ ┣ 1654504012914
+ ┃ ┃ ┃ ┗ R-39321.pdf
+ ┃ ┃ ┗ 1654505224913
+ ┃ ┃ ┃ ┗ R-39321.pdf
+ ┃ ┗ .DS_Store
+ ┣ validators
+ ┃ ┣ ArticleChangeValidator.ts
+ ┃ ┣ ArticleParentValidator.ts
+ ┃ ┣ ArticoloClienteOrdineValidator.ts
+ ┃ ┣ ArticoloMensileValidator.ts
+ ┃ ┣ ArticoloOrdineValidator.ts
+ ┃ ┣ ArticoloPropostaValidator.ts
+ ┃ ┣ ArticoloRinnovoStoricoValidator.ts
+ ┃ ┣ ArticoloRinnovoValidator.ts
+ ┃ ┣ ArticoloValidator.ts
+ ┃ ┣ AttivazioneArticoloOrdineValidator.ts
+ ┃ ┣ CambioPianoValidator.ts
+ ┃ ┣ ClienteValidator.ts
+ ┃ ┣ ConfigurazioneMensileLocaleValidator.ts
+ ┃ ┣ ConfigurazioneRinnovoLocaleValidator.ts
+ ┃ ┣ ContattoValidator.ts
+ ┃ ┣ CostruttoreValidator.ts
+ ┃ ┣ DisdettaValidator.ts
+ ┃ ┣ GruppoCassaincloudValidator.ts
+ ┃ ┣ GruppoValidator.ts
+ ┃ ┣ LocaleValidator.ts
+ ┃ ┣ MacroTipoArticoloValidator.ts
+ ┃ ┣ MailValidator.ts
+ ┃ ┣ MatricolaArticoloOrdineValidator.ts
+ ┃ ┣ MensileValidator.ts
+ ┃ ┣ MotivazioneValidator.ts
+ ┃ ┣ NumbersValidator.ts
+ ┃ ┣ OrdineValidator.ts
+ ┃ ┣ PagamentoMensileValidator.ts
+ ┃ ┣ PrezzoValidator.ts
+ ┃ ┣ ProfiloContattoValidator.ts
+ ┃ ┣ ProfiloLocaleValidator.ts
+ ┃ ┣ PropostaValidator.ts
+ ┃ ┣ RepartoValidator.ts
+ ┃ ┣ RinnovoValidator.ts
+ ┃ ┣ StatoValidator.ts
+ ┃ ┣ TPaymentEsattoValidator.ts
+ ┃ ┣ TTraceValidator.ts
+ ┃ ┣ TipoArticoloValidator.ts
+ ┃ ┣ TipoFatturazioneValidator.ts
+ ┃ ┣ TipoGruppoValidator.ts
+ ┃ ┣ TipoOrdineValidator.ts
+ ┃ ┗ UtenteValidator.ts
+ ┣ views
+ ┃ ┣ guest.ejs
+ ┃ ┗ redoc_docs.ejs
+ ┣ .DS_Store
+ ┣ Server.ts
+ ┣ cluster.ts
+ ┗ index.ts
+</code></pre></div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Backend" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Backend
+            </div>
+</div>
+</a>
+<a aria-label="Next: Utilizzo" class="md-footer__link md-footer__link--next" href="../utilizzo/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Utilizzo
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2019 - 2022 Andrea Brioschi
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/AndreFra96" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+</body>
+</html>
