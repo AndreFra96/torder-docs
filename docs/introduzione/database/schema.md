@@ -1,12 +1,5 @@
 # Schema
 
-## article_change
-
-| Id  | Descrizione     | Tipo | Dimensione |
-| --- | --------------- | ---- | ---------- |
-| 1   | articolo        | int  | 4          |
-| 2   | articolo_cambio | int  | 4          |
-
 ## article_parent
 
 | Id  | Descrizione | Tipo | Dimensione |
@@ -77,7 +70,6 @@
 | 7   | articolo_rinnovo | int     | 4          |
 | 8   | date_esatto      | date    | 3          |
 | 9   | item_id_esatto   | int     | 4          |
-
 
 ## articolo_rinnovo
 
@@ -221,6 +213,61 @@
 | 10  | utente             | int       | 4          |
 | 11  | note               | nvarchar  | 490        |
 
+## ex_insoluti
+
+| Id  | Descrizione      | Tipo    | Dimensione |
+| --- | ---------------- | ------- | ---------- |
+| 1   | id_insoluto      | varchar | 50         |
+| 2   | id_customer      | bigint  | 8          |
+| 3   | date_insoluto    | varchar | 50         |
+| 4   | total_insoluto   | real    | 4          |
+| 5   | desc_insoluto    | varchar | 50         |
+| 6   | pagato           | bigint  | 8          |
+| 7   | date_insert      | varchar | 50         |
+| 8   | date_last_update | varchar | 50         |
+
+## ex_invoice
+
+| Id  | Descrizione         | Tipo    | Dimensione |
+| --- | ------------------- | ------- | ---------- |
+| 1   | invoice_id          | varchar | 50         |
+| 2   | id_customer         | bigint  | 8          |
+| 3   | invoice_nr          | bigint  | 8          |
+| 4   | invoice_date_billed | varchar | 50         |
+| 5   | total_invoice       | real    | 4          |
+| 6   | discount            | varchar | 50         |
+| 7   | management_fees     | real    | 4          |
+| 8   | payment_id          | bigint  | 8          |
+| 9   | is_notacredito      | bigint  | 8          |
+| 10  | is_acconto          | bigint  | 8          |
+
+## ex_invoice_item
+
+| Id  | Descrizione | Tipo    | Dimensione |
+| --- | ----------- | ------- | ---------- |
+| 1   | item_id     | bigint  | 8          |
+| 2   | invoice_id  | varchar | 50         |
+| 3   | article_id  | varchar | 50         |
+| 4   | item_qty    | real    | 4          |
+| 5   | item_price  | real    | 4          |
+| 6   | is_discount | bigint  | 8          |
+
+## ex_scaduti
+
+| Id  | Descrizione        | Tipo    | Dimensione |
+| --- | ------------------ | ------- | ---------- |
+| 1   | id_scaduto         | varchar | 50         |
+| 2   | id_customer        | bigint  | 8          |
+| 3   | invoice_id         | varchar | 50         |
+| 4   | payment_id_scaduto | varchar | 50         |
+| 5   | date_scaduto       | varchar | 50         |
+| 6   | total_scaduto      | real    | 4          |
+| 7   | id_login           | varchar | 50         |
+| 8   | note               | varchar | 50         |
+| 9   | pagato             | bigint  | 8          |
+| 10  | date_insert        | varchar | 50         |
+| 11  | date_last_update   | varchar | 50         |
+
 ## gruppo
 
 | Id  | Descrizione        | Tipo     | Dimensione |
@@ -284,16 +331,23 @@
 
 ## mensile
 
-| Id  | Descrizione       | Tipo     | Dimensione |
-| --- | ----------------- | -------- | ---------- |
-| 1   | id                | int      | 4          |
-| 2   | cliente           | int      | 4          |
-| 4   | date_billing      | date     | 3          |
-| 5   | next_billing      | date     | 3          |
-| 6   | locale            | int      | 4          |
-| 7   | creation_date     | date     | 3          |
-| 8   | tipo_fatturazione | int      | 4          |
-| 9  | group_billing     | binary   | 1          |
+| Id  | Descrizione       | Tipo   | Dimensione |
+| --- | ----------------- | ------ | ---------- |
+| 1   | id                | int    | 4          |
+| 2   | cliente           | int    | 4          |
+| 4   | date_billing      | date   | 3          |
+| 5   | next_billing      | date   | 3          |
+| 6   | locale            | int    | 4          |
+| 7   | creation_date     | date   | 3          |
+| 8   | tipo_fatturazione | int    | 4          |
+| 11  | group_billing     | binary | 1          |
+
+## mesi
+
+| Id  | Descrizione | Tipo    | Dimensione |
+| --- | ----------- | ------- | ---------- |
+| 1   | id          | int     | 4          |
+| 2   | descrizione | varchar | 50         |
 
 ## motivazione
 
@@ -385,7 +439,6 @@
 | 1   | id          | int      | 4          |
 | 2   | descrizione | nvarchar | 100        |
 
-
 ## reparto
 
 | Id  | Descrizione | Tipo     | Dimensione |
@@ -395,15 +448,15 @@
 
 ## rinnovo
 
-| Id  | Descrizione      | Tipo     | Dimensione |
-| --- | ---------------- | -------- | ---------- |
-| 1   | id               | int      | 4          |
-| 2   | cliente          | int      | 4          |
-| 4   | locale           | int      | 4          |
-| 5   | mese             | date     | 3          |
-| 6   | ordine_generato  | int      | 4          |
-| 7  | mail_inviata     | binary   | 1          |
-| 8  | completato       | binary   | 1          |
+| Id  | Descrizione     | Tipo   | Dimensione |
+| --- | --------------- | ------ | ---------- |
+| 1   | id              | int    | 4          |
+| 2   | cliente         | int    | 4          |
+| 4   | locale          | int    | 4          |
+| 5   | mese            | date   | 3          |
+| 6   | ordine_generato | int    | 4          |
+| 10  | mail_inviata    | binary | 1          |
+| 11  | completato      | binary | 1          |
 
 ## stato
 

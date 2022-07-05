@@ -3,25 +3,25 @@ site_url: https://example.com
 nav:
   - Home:
       - index.md
-  - Architettura:
-      - architettura/index.md
+  - Introduzione:
+      - introduzione/index.md
       - Database:
-          - architettura/database/index.md
-          - Schema: architettura/database/schema.md
-          - Diagramma ER: architettura/database/er.md
+          - introduzione/database/index.md
+          - Schema: introduzione/database/schema.md
+          - Diagramma ER: introduzione/database/er.md
       - Backend:
-          - architettura/backend/index.md
-          - Struttura: architettura/backend/struttura.md
-          - Casi d'uso:
-              - architettura/backend/casi-uso/index.md
-              # - CRUD: architettura/backend/casi-uso/crud.md
+          - introduzione/backend/index.md
+          - Struttura: introduzione/backend/struttura.md
+          - Utilizzo:
+              - introduzione/backend/utilizzo/index.md
+              # - CRUD: introduzione/backend/utilizzo/crud.md
               - CRUD:
-                  - architettura/backend/casi-uso/crud/index.md
-                  - Query: architettura/backend/casi-uso/crud/query.md
-              - Logiche di Business: architettura/backend/casi-uso/logiche-business.md
-              - Servizi Aggiuntivi: architettura/backend/casi-uso/servizi.md
-      - Frontend: architettura/frontend.md
-      - Javascript SDK: architettura/sdk.md
+                  - introduzione/backend/utilizzo/crud/index.md
+                  - Query: introduzione/backend/utilizzo/crud/query.md
+              - Logiche di Business: introduzione/backend/utilizzo/logiche-business.md
+              - Servizi Aggiuntivi: introduzione/backend/utilizzo/servizi.md
+      - Frontend: introduzione/frontend.md
+      - Javascript SDK: introduzione/sdk.md
       - Autenticazione: autenticazione/index.md
   - Autenticazione:
       - autenticazione/index.md
@@ -66,6 +66,7 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - attr_list
 extra_css:
   - stylesheets/extra.css
 extra:

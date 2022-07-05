@@ -3,10 +3,25 @@
     --md-typeset-a-color: #cc3162;
 }
 
+/* dark mode */
 [data-md-color-scheme="slate"] {
     --md-primary-fg-color:        #952649;
 }
 
 .md-nav__link:hover{
     color: #cc3162
+}
+
+.md-button:hover{
+    background-color: #cc3162 !important;
+    border: 2px solid #cc3162 !important;
+}
+
+.md-button.md-button--primary:hover{
+    background-color: #b72c58 !important;
+    border: 2px solid #b72c58 !important;
+}
+
+.md-button{
+    border-radius: 0.25rem !important;
 }
