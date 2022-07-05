@@ -1,4 +1,4 @@
-# T-Order Developerss
+# T-Order Developers
 
 <b>
 Questa serie di documenti raccoglie tutte le informazioni dedicate agli sviluppatori interni di RCA SRL.
