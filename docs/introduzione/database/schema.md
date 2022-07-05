@@ -1,5 +1,9 @@
 # Schema
 
+<<<<<<< HEAD:docs/introduzione/database/schema.md
+=======
+
+>>>>>>> c382f95de7264b96fd1c025b216424e7c372d4d4:docs/architettura/database/schema.md
 ## article_parent
 
 | Id  | Descrizione | Tipo | Dimensione |
