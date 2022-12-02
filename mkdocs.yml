@@ -1,27 +1,50 @@
-site_name: T-Order Developers
-site_url: https://example.com
+site_name: T-Order Docs
+site_url: https://torder.newchurchill.eu
 nav:
   - Home:
       - index.md
   - Introduzione:
       - introduzione/index.md
+  - Ordini:
+      - ordini/index.md
+      - Tabelle Coinvolte: ordini/tabelle_coinvolte.md
+      - Informazioni Ordine: ordini/informazioni_ordine.md
+      - Ciclo Ordine: ordini/ciclo_ordine.md
+  - Rinnovi:
+      - rinnovi/index.md
+      - Annuali/Biennali/31-12:
+          - rinnovi/annuali/index.md
+          - Generazione Rinnovo: rinnovi/annuali/generazione.md
+          - Configurazione: rinnovi/annuali/configurazione.md
+          - Disdetta: rinnovi/annuali/disdetta.md
+          - Inserimento nuovi articoli: rinnovi/annuali/inserimento.md
+          - Cambio Piano: rinnovi/annuali/cambio.md
+          - Rinnovo: rinnovi/annuali/rinnovo.md
+      - Mensili/Trimestrali/Semestrali: rinnovi/mensili-trimestrali-semestrali.md
+  - Integrazioni: integrazioni.md
+  - Analisi:
+      - analisi/index.md
       - Database:
-          - introduzione/database/index.md
-          - Schema: introduzione/database/schema.md
-          - Diagramma ER: introduzione/database/er.md
+          - analisi/database/index.md
+          - Schema: analisi/database/schema.md
+          - Diagramma ER: analisi/database/er.md
       - Backend:
-          - introduzione/backend/index.md
-          - Struttura: introduzione/backend/struttura.md
-          - Utilizzo:
-              - introduzione/backend/utilizzo/index.md
-              # - CRUD: introduzione/backend/utilizzo/crud.md
+          - analisi/backend/index.md
+          - Struttura: analisi/backend/struttura.md
+          - Funzionalità:
+              - analisi/backend/funzionalita/index.md
               - CRUD:
-                  - introduzione/backend/utilizzo/crud/index.md
-                  - Query: introduzione/backend/utilizzo/crud/query.md
-              - Logiche di Business: introduzione/backend/utilizzo/logiche-business.md
-              - Servizi Aggiuntivi: introduzione/backend/utilizzo/servizi.md
-      - Frontend: introduzione/frontend.md
-      - Javascript SDK: introduzione/sdk.md
+                  - analisi/backend/funzionalita/crud/index.md
+                  - Query: analisi/backend/funzionalita/crud/query.md
+              - Logiche di Business: analisi/backend/funzionalita/logiche-business.md
+              - Servizi Aggiuntivi:
+                  - analisi/backend/funzionalita/servizi/index.md
+                  - Mail: analisi/backend/funzionalita/servizi/mail.md
+                  - PDF: analisi/backend/funzionalita/servizi/pdf.md
+                  - File Manager: analisi/backend/funzionalita/servizi/file.md
+                  - Ospiti: analisi/backend/funzionalita/servizi/ospiti.md
+      - Frontend: analisi/frontend.md
+      - Javascript SDK: analisi/sdk.md
       - Autenticazione: autenticazione/index.md
   - Autenticazione:
       - autenticazione/index.md
@@ -30,16 +53,6 @@ nav:
           - autenticazione/utenti/index.md
           - Generazione Utente: autenticazione/utenti/generazione-utente.md
           - Privilegi e Ruoli: autenticazione/utenti/privilegi-ruoli.md
-  - Ordini:
-      - ordini/index.md
-      - Tabelle Coinvolte: ordini/tabelle_coinvolte.md
-      - Informazioni Ordine: ordini/informazioni_ordine.md
-      - Ciclo Ordine: ordini/ciclo_ordine.md
-  - Rinnovi:
-      - rinnovi/index.md
-      - Annuali/Biennali/31-12: rinnovi/annuali-biennali-31-12.md
-      - Mensili/Trimestrali/Semestrali: rinnovi/mensili-trimestrali-semestrali.md
-  - Integrazioni: integrazioni.md
   - Esempi: esempi.md
   - Demo: demo.md
 theme:
@@ -67,6 +80,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - attr_list
+  - def_list
 extra_css:
   - stylesheets/extra.css
 extra:

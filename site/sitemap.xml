@@ -1,148 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://example.com/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/demo/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/demo/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/esempi/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/esempi/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/integrazioni/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/integrazioni/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/frontend/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/frontend/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/sdk/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/sdk/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/struttura/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/struttura/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/casi-uso/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/casi-uso/logiche-business/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/logiche-business/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/casi-uso/servizi/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/crud/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/casi-uso/crud/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/crud/query/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/backend/casi-uso/crud/query/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/servizi/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/database/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/servizi/file/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/database/er/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/servizi/mail/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/architettura/database/schema/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/servizi/ospiti/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/autenticazione/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/backend/funzionalita/servizi/pdf/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/autenticazione/auth0-config/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/database/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/autenticazione/utenti/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/database/er/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/autenticazione/utenti/generazione-utente/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/analisi/database/schema/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/autenticazione/utenti/privilegi-ruoli/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/autenticazione/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/ordini/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/autenticazione/auth0-config/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/ordini/ciclo_ordine/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/autenticazione/utenti/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/ordini/informazioni_ordine/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/autenticazione/utenti/generazione-utente/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/ordini/tabelle_coinvolte/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/autenticazione/utenti/privilegi-ruoli/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/rinnovi/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/introduzione/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/rinnovi/annuali-biennali-31-12/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/ordini/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://example.com/rinnovi/mensili-trimestrali-semestrali/</loc>
-         <lastmod>2022-06-19</lastmod>
+         <loc>https://torder.newchurchill.eu/ordini/ciclo_ordine/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/ordini/informazioni_ordine/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/ordini/tabelle_coinvolte/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/mensili-trimestrali-semestrali/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/cambio/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/configurazione/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/disdetta/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/generazione/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/inserimento/</loc>
+         <lastmod>2022-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://torder.newchurchill.eu/rinnovi/annuali/rinnovo/</loc>
+         <lastmod>2022-12-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -1,9 +1,9 @@
-# T-Order Developers
+# T-Order Docs
 
 <b>
-Questa serie di documenti raccoglie tutte le informazioni dedicate agli sviluppatori interni di RCA SRL.
+Questa serie di documenti raccoglie tutte le informazioni dedicate agli utenti e agli sviluppatori interni di RCA SRL.
 
-Lo scopo di questi documenti è quello di raccogliere gli aspetti tecnici dell'applicazione e lasciarne una traccia scritta per permettere la manutenibilità del progetto.
+Lo scopo di questi documenti è quello di raccogliere gli aspetti pratici e gli aspetti tecnici dell'applicazione e lasciarne una traccia scritta per favorire la manutenibilità del progetto.
 </b>
 
 T-Order è un software studiato per sopperire alle necessità specifiche dell'azienda RCA SRL.
